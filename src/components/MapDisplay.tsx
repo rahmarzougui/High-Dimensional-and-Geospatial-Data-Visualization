@@ -120,7 +120,7 @@ const MapDisplay = () => {
         .filter(f => f.geometry && f.geometry.type === "Point")
         .map(f => {
           const coords = (f.geometry as GeoJSON.Point).coordinates as [number, number];
-          const projected = projection(coords);
+          const projected = projection(coords as [number, number]);
           return { feature: f, projected };
         })
         .filter(item => item.projected !== null && 
@@ -203,7 +203,7 @@ const MapDisplay = () => {
 
     // 5. Draw airport markers and labels (top layer)
     Object.values(airports).forEach(airport => {
-      const projected = projection(airport.coords);
+      const projected = projection(airport.coords as [number, number]);
       if (!projected) return;
 
       // Airport marker
