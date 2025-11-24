@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import worldMap from "../assets/world.geo.json";
 
 // Airport coordinates
-const airports = {
+const airports: Record<string, { label: string; coords: [number, number] }> = {
   ICN: { label: "ICN", coords: [126.4505, 37.4691] }, // Seoul
   DXB: { label: "DXB", coords: [55.3644, 25.2532] }, // Dubai
   TUN: { label: "TUN", coords: [10.2270, 36.8510] }  // Tunis
